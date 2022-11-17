@@ -4,10 +4,10 @@
   "private": true,
   "description": "This is used to track React Native screens",
   "author": {
-    "name": "Embrace.io",
-    "email": "truenorth@embrace.io"
+    "name": "TheMutsi",
+    "email": "mussidamian@gmail.com"
   },
-  "homepage": "https://embrace.io/",
+  "homepage": "https://google.com",
   "license": "ISC",
   "main": "lib/index.js",
   "directories": {
@@ -26,13 +26,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/embrace-io/react-native-embrace.git"
+    "url": "git@github.com:TheMutsi/test-lerna.git"
   },
   "scripts": {
     "test": "node ./__tests__/react-navigation.test.ts",
     "build": "yarn pack"
-  },
-  "bugs": {
-    "url": "https://github.com/embrace-io/react-native-embrace/issues"
   }
 }
