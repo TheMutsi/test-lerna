@@ -22,7 +22,7 @@
   ],
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.com"
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
@@ -33,5 +33,5 @@
     "test": "node ./__tests__/react-navigation.test.ts",
     "build": "yarn pack"
   },
-  "gitHead": "9782926c76b8c4f766c7e2a4c255996406b4b345"
+  "gitHead": "fb7b06e6707f9f1aef607ad67ceb3b702537de35"
 }
