@@ -29,6 +29,7 @@
     "url": "git@github.com:TheMutsi/test-lerna.git"
   },
   "scripts": {
+    "tsc": "tsc",
     "test": "node ./__tests__/react-navigation.test.ts",
     "build": "yarn pack"
   }
