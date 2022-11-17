@@ -1,12 +1,12 @@
-import { useEffect, useRef, useState } from "react";
-import { NativeModules } from "react-native";
+import { useEffect, useRef, useState } from 'react';
+import { NativeModules } from 'react-native';
 import {
   ICurrentScreenInstance,
   IHistory,
   INavigationRef,
   INavigationState,
-} from "../navigation/interfaces/NavigationInterfaces";
-import { findNavigationHistory } from "../navigation/Utils";
+} from '../navigation/interfaces/NavigationInterfaces';
+import { findNavigationHistory } from '../navigation/Utils';
 
 export const useEmbraceNavigationTracker = (navigationRef: INavigationRef) => {
   const [isFirstScreen, setIsFirstScreen] = useState<boolean>(true);
@@ -26,7 +26,7 @@ export const useEmbraceNavigationTracker = (navigationRef: INavigationRef) => {
       NativeModules.EmbraceManager.startView(cS.name);
     } else {
       console.warn(
-        "[Embrace] The method startView was not found, please update the native SDK"
+        '[Embrace] The method startView was not found, please update the native SDK'
       );
     }
   };
@@ -42,7 +42,7 @@ export const useEmbraceNavigationTracker = (navigationRef: INavigationRef) => {
         setLastScreenStart(name);
       } else {
         console.warn(
-          "[Embrace] The method endView was not found, please update the native SDK"
+          '[Embrace] The method endView was not found, please update the native SDK'
         );
       }
     }
@@ -58,7 +58,7 @@ export const useEmbraceNavigationTracker = (navigationRef: INavigationRef) => {
   useEffect(() => {
     if (!navigationRef) {
       console.warn(
-        "[Embrace] Navigation reference was not provided. Navigation tracker was not applied"
+        '[Embrace] Navigation reference was not provided. Navigation tracker was not applied'
       );
       return;
     }
@@ -69,7 +69,7 @@ export const useEmbraceNavigationTracker = (navigationRef: INavigationRef) => {
       findAndSetLastScreen(currentRute);
       setIsFirstScreen(false);
     }
-    const unsubscribe = navigationRefC.addListener("state", (e) => {
+    const unsubscribe = navigationRefC.addListener('state', (e) => {
       findAndSetLastScreen(e.data.state);
     });
     return unsubscribe;
