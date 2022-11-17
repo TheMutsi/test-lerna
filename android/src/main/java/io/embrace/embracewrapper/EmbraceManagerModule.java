@@ -174,11 +174,21 @@ public class EmbraceManagerModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void startView(String screen) {
-        Embrace.getInstance().startFragment(screen);
+        Embrace.getInstance().logRnView(screen);
     }
 
     @ReactMethod
     public void endView(String screen) {
+        //This method is only for compatibility, Android does not need an end event to end the view, but iOS does
+    }
+
+    @ReactMethod
+    public void startFragment(String screen) {
+        Embrace.getInstance().startFragment(screen);
+    }
+
+    @ReactMethod
+    public void endFragment(String screen) {
         Embrace.getInstance().endFragment(screen);
     }
 

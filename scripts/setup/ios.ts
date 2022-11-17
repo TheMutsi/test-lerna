@@ -157,7 +157,8 @@ const findNameWithCaseSensitiveFromPath = (path: string, name: string) => {
 
   logger.warn('the xcodeproj file does not match with your project\'s name');
   logger.warn(
-    `skipping adding Embrace-Info.plist to ${name}, this should be added to the project manually. You can go https://embrace.io/docs/ios/integration/session-reporting/#import-embrace for more information`
+    `skipping adding Embrace-Info.plist to ${name}, this should be added to the project manually.
+    You can go https://embrace.io/docs/ios/integration/session-reporting/#import-embrace for more information`
   );
   return name;
 };

@@ -30,7 +30,8 @@ export const patchBuildGradle = {
     return buildGradlePatchable().then((file) => {
       if (file.hasLine(androidToolsBuildGradleRE)) {
         if (file.hasLine(androidEmbraceSwazzler)) {
-          file.deleteLine(androidEmbraceSwazzler);
+          logger.warn('already has Embrace Swazzler');
+          return;
         }
         logger.log('Patching build.gradle file');
         file.addAfter(

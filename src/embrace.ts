@@ -1,5 +1,4 @@
 'use strict';
-
 import { NativeModules } from 'react-native';
 import {
   getNetworkSDKInterceptorProvider,

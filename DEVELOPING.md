@@ -13,9 +13,11 @@ React Native behaves substantially different between debug/release mode - we sho
 To run on Android, follow the instructions below for debug/release mode.
 
 ### Debug mode
+
 `yarn android`
 
 ### Release mode
+
 `yarn android --variant=release`
 
 ## Run on iOS
@@ -25,9 +27,11 @@ To run on iOS, follow the instructions below for debug/release mode.
 `pushd ios; pod install; popd;`
 
 ### Debug mode
+
 `yarn ios`
 
 ### Release mode
+
 `yarn ios --configuration=Release`
 
 # Testing SDK changes locally
@@ -38,13 +42,14 @@ If you alter the node_modules in any way (either by deleting them or running `ya
 
 ## Testing JavaScript changes
 
-There is no reliable way to test JavaScript changes with our current setup.
+You can test React Native changes adding this library using `yarn` or `npm`. To do this you have to run `yarn pack` to generate the dist folder and then, in your test project run `yarn add localPath/react-native-embrace`. (If for some reason your local sdk has node-modules inside, that might bring some errors, delete that folder since it shouldn't have one)
 
 ## Testing Android changes
 
 You can test Android changes in our React Native SDK by altering the dependency in the React Native package's `build.gradle`. You can either publish a local artefact with `./gradlew clean assembleRelease publishToMavenLocal`, or if you need CI to pass - publish a beta as documented in the [Android repo](https://github.com/embrace-io/embrace-android-sdk3#qa-releases).
 
 ### Local artefact
+
 1. Publish locally with `./gradlew clean assembleRelease publishToMavenLocal -Pversion=<your-version-here>`
 2. Add `mavenLocal()` to the `repositories` closure in `examples/react-native-test-suite/node_modules/react-native-embrace/android/build.gradle`
 3. Set the correct `embrace-android-sdk` version in both `examples/react-native-test-suite/node_modules/react-native-embrace/android/build.gradle`
