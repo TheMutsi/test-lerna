@@ -17,6 +17,10 @@
     "RNEmbrace.podspec",
     "react-native.config.js"
   ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.com"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:TheMutsi/test-lerna.git"
