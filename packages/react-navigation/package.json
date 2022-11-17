@@ -1,5 +1,5 @@
 {
-  "name": "react-navigation",
+  "name": "@mt-test-leona/react-navigation",
   "version": "0.0.18",
   "description": "This is used to track React Native screens",
   "author": {
@@ -33,5 +33,5 @@
     "test": "node ./__tests__/react-navigation.test.ts",
     "build": "yarn pack"
   },
-  "gitHead": "fb7b06e6707f9f1aef607ad67ceb3b702537de35"
+  "gitHead": "df985571c10d44e085e415d4262ee00c1c187bab"
 }
