@@ -3,8 +3,8 @@
   "version": "3.10.2",
   "private": true,
   "author": {
-    "name": "TheMutsi",
-    "email": "mussidamian@gmail.com"
+    "name": "themutsi",
+    "email": "damian.mussi@embrace.io"
   },
   "homepage": "https://google.com",
   "description": "A React Native wrapper for Embrace SDK",
