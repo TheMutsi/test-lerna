@@ -32,5 +32,6 @@
     "tsc": "tsc",
     "test": "node ./__tests__/react-navigation.test.ts",
     "build": "yarn pack"
-  }
+  },
+  "gitHead": "612571e00b12e2e4f0625bf2d8acf0b31b009286"
 }
