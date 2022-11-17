@@ -1,7 +1,7 @@
 {
   "name": "react-navigation",
   "version": "0.0.2",
-  "private": true,
+  "private": false,
   "description": "This is used to track React Native screens",
   "author": {
     "name": "TheMutsi",
