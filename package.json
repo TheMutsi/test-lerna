@@ -17,6 +17,10 @@
     "RNEmbrace.podspec",
     "react-native.config.js"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:TheMutsi/test-lerna.git"
+  },
   "scripts": {
     "build:watch": "tsc -w --preserveWatchOutput",
     "lint": "tslint --fix -c tslint.json -p tsconfig.json",
