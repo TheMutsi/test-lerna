@@ -33,5 +33,5 @@
     "test": "node ./__tests__/react-navigation.test.ts",
     "build": "yarn pack"
   },
-  "gitHead": "a6e71a92b13a538f3afcf9458bbbba95106c083c"
+  "gitHead": "b8bccbcc34c8598f3d65408d4218dc096b161464"
 }
