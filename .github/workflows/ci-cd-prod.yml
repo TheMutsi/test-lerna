@@ -1,0 +1,33 @@
+name: Publish NPM Package
+
+on:
+  push:
+    branches:
+      - main  # Cambia 'main' al nombre de tu rama principal
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14  # Cambia a la versión de Node.js que necesites
+
+    - name: Install dependencies
+      run: yarn install
+
+    - name: Build your package (if necessary)
+      run: yarn build  # Si es necesario, sustituye esto por el comando real para construir tu paquete
+
+    - name: Publish to NPM
+      run: |
+        echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
+        yarn publish --access public  # Cambia 'public' a 'restricted' si tu paquete es privado
+
+    - name: Clean up .npmrc file
+      run: rm ~/.npmrc
