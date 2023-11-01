@@ -20,6 +20,11 @@ jobs:
       with:
         node-version: 14
 
+    - name: Update Private variable in package.json (needed to install dependencies)
+      run: |
+        echo "Changing package.json 'private' field to false"
+        jq '.private = true' package.json > tmpfile && mv tmpfile package.json
+        
     - name: Install dependencies
       run: yarn install
       
