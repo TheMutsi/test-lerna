@@ -36,7 +36,7 @@ jobs:
     - name: Publish Modules to NPM
       run: |
         echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-        yarn publish-modules
+        npx lerna run tsc && npx lerna publish --tag-version-prefix='modules-'
         
     - name: Commit RN Version
       run: |
