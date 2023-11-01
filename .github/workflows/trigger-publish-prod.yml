@@ -1,0 +1,17 @@
+name: Trigger NPM Publish Prod
+
+on:
+  workflow_dispatch:
+    inputs:
+      package_version:
+        description: 'RN Version (e.g., 1.0.0)'
+        required: true
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Trigger NPM Publish
+      run: |
+        echo "Package version: ${{ inputs.package_version }}"
+        # Puedes agregar aquí los comandos para ejecutar tu flujo de CI/CD
