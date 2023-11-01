@@ -22,16 +22,27 @@ jobs:
 
     - name: Install dependencies
       run: yarn install
-      
-    - name: Update RN Version in package.json
+
+    - name: Update package.json
       run: |
-        echo "Changing package.json 'version' field to ${{ inputs.rn_version }}"
-        jq '.version = ${{ inputs.rn_version }}' package.json > tmpfile && mv tmpfile package.json
+        const fs = require('fs');
+        const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+        packageJson.version = ${{ inputs.rn_version }};
+        fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2));
         git config user.email "damian.mussi@embrace.io"
         git config user.name "Mussi Damian"
         git add package.json
         git commit -m "bump rn version to ${{ inputs.rn_version }}"
         git push origin main
+    # - name: Update RN Version in package.json
+    #   run: |
+    #     echo "Changing package.json 'version' field to ${{ inputs.rn_version }}"
+    #     jq '.version = ${{ inputs.rn_version }}' package.json > tmpfile && mv tmpfile package.json
+    #     git config user.email "damian.mussi@embrace.io"
+    #     git config user.name "Mussi Damian"
+    #     git add package.json
+    #     git commit -m "bump rn version to ${{ inputs.rn_version }}"
+    #     git push origin main
         
     - name: Build your package (if necessary)
       run: yarn build
