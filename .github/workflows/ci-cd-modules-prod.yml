@@ -28,15 +28,15 @@ jobs:
     - name: Install dependencies
       run: yarn install
       
-    - name: Update Lerna Modules Version in lerna.json
-      run: |
-        echo "Changing lerna.json 'version' field to ${{ inputs.modules_version }}"
-        jq '.version = "${{ inputs.modules_version }}"' lerna.json > tmpfile && mv tmpfile lerna.json
+    # - name: Update Lerna Modules Version in lerna.json
+    #   run: |
+    #     echo "Changing lerna.json 'version' field to ${{ inputs.modules_version }}"
+    #     jq '.version = "${{ inputs.modules_version }}"' lerna.json > tmpfile && mv tmpfile lerna.json
               
     - name: Publish Modules to NPM
       run: |
         echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-        npx lerna run tsc && npx lerna publish --tag-version-prefix='modules-'
+        npx lerna run tsc && npx lerna publish --yes --tag-version-prefix='modules-'
         
     - name: Commit RN Version
       run: |
