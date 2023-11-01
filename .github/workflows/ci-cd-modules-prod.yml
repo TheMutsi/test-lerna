@@ -27,7 +27,12 @@ jobs:
         
     - name: Install dependencies
       run: yarn install
+
       
+    - name: Restore Private variable in package.json
+      run: |
+        echo "Changing package.json 'private' field to false"
+        jq '.private = false' package.json > tmpfile && mv tmpfile package.json
     # - name: Update Lerna Modules Version in lerna.json
     #   run: |
     #     echo "Changing lerna.json 'version' field to ${{ inputs.modules_version }}"
