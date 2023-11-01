@@ -17,18 +17,20 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: 14  # Cambia a la versión de Node.js que necesites
+        node-version: 14
 
     - name: Install dependencies
       run: yarn install
 
     - name: Build your package (if necessary)
-      run: yarn build  # Si es necesario, sustituye esto por el comando real para construir tu paquete
-
+      run: yarn build
+      
+    - name: Update package.json
+      run: |
+        echo "Changing package.json 'private' field to false"
+        jq '.private = false' package.json > tmpfile && mv tmpfile package.json
+        
     - name: Publish to NPM
       run: |
         echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-        yarn publish --access public  # Cambia 'public' a 'restricted' si tu paquete es privado
-
-    - name: Clean up .npmrc file
-      run: rm ~/.npmrc
+        yarn publish
