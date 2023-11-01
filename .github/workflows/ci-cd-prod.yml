@@ -26,7 +26,7 @@ jobs:
     - name: Update RN Version in package.json
       run: |
         echo "Changing package.json 'version' field to ${{ inputs.rn_version }}"
-        jq '.version = ${{ inputs.rn_version }}' package.json > tmpfile && mv tmpfile package.json
+        jq '.version = "${{ inputs.rn_version }}"' package.json > tmpfile && mv tmpfile package.json
         git status
         git config user.email "damian.mussi@embrace.io"
         git config user.name "Mussi Damian"
