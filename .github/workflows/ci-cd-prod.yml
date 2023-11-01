@@ -2,9 +2,10 @@ name: Publish NPM Package
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main  # Cambia 'main' al nombre de tu rama principal
+    inputs:
+      rn_version:
+        description: 'RN version (e.g., 1.0.0)'
+        required: true
 
 jobs:
   publish:
@@ -21,11 +22,19 @@ jobs:
 
     - name: Install dependencies
       run: yarn install
-
+      
+    - name: Update RN Version in package.json
+      run: |
+        echo "Changing package.json 'private' field to false"
+        jq '.version = ${{ inputs.package_version }}' package.json > tmpfile && mv tmpfile package.json
+        git add ./package.json
+        git commit -m "bump rn version to ${{ inputs.package_version }}"
+        git push origin main
+        
     - name: Build your package (if necessary)
       run: yarn build
       
-    - name: Update package.json
+    - name: Update Private variable in package.json
       run: |
         echo "Changing package.json 'private' field to false"
         jq '.private = false' package.json > tmpfile && mv tmpfile package.json
