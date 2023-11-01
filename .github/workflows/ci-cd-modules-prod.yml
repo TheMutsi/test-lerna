@@ -37,7 +37,11 @@ jobs:
     #   run: |
     #     echo "Changing lerna.json 'version' field to ${{ inputs.modules_version }}"
     #     jq '.version = "${{ inputs.modules_version }}"' lerna.json > tmpfile && mv tmpfile lerna.json
-              
+    - name: Identify me in github
+      run: |
+        git config user.email "damian.mussi@embrace.io"
+        git config user.name "Mussi Damian"
+        
     - name: Publish Modules to NPM
       run: |
         echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
@@ -45,8 +49,6 @@ jobs:
         
     - name: Commit RN Version
       run: |
-        git config user.email "damian.mussi@embrace.io"
-        git config user.name "Mussi Damian"
         git add lerna.json
         git commit -m "bump lerna modules version to ${{ inputs.rn_version }}"
         git push origin main
