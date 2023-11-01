@@ -1,7 +1,7 @@
 {
   "name": "test-leona",
-  "version": "0.0.22",
-  "private": true,
+  "version": "0.0.23",
+  "private": false,
   "author": {
     "name": "themutsi",
     "email": "damian.mussi@embrace.io"
