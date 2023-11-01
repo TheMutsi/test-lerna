@@ -1,0 +1,42 @@
+name: Publish Lerna Modules
+
+on:
+  workflow_dispatch:
+    inputs:
+      modules_version:
+        description: 'Lerna Modules version (e.g., 1.0.0)'
+        required: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Install dependencies
+      run: yarn install
+      
+    - name: Update Lerna Modules Version in lerna.json
+      run: |
+        echo "Changing lerna.json 'version' field to ${{ inputs.modules_version }}"
+        jq '.version = "${{ inputs.modules_version }}"' lerna.json > tmpfile && mv tmpfile lerna.json
+              
+    - name: Publish Modules to NPM
+      run: |
+        echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+        yarn publish-modules
+        
+    - name: Commit RN Version
+      run: |
+        git config user.email "damian.mussi@embrace.io"
+        git config user.name "Mussi Damian"
+        git add lerna.json
+        git commit -m "bump lerna modules version to ${{ inputs.rn_version }}"
+        git push origin main
