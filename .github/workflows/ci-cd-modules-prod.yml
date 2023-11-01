@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       modules_version:
-        description: 'Lerna Modules version (e.g., 1.0.0)'
+        description: 'Lerna Modules version bump type (patch, minor, major)'
         required: true
 
 jobs:
@@ -41,7 +41,7 @@ jobs:
     - name: Publish Modules to NPM
       run: |
         echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-        npx lerna run tsc && npx lerna publish --yes --tag-version-prefix='modules-'
+        npx lerna run tsc && npx lerna publish ${{ inputs.modules_version }} --tag-version-prefix='modules-'
         
     - name: Commit RN Version
       run: |
