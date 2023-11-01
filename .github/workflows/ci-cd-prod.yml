@@ -25,12 +25,12 @@ jobs:
       
     - name: Update RN Version in package.json
       run: |
-        echo "Changing package.json 'version' field to ${{ inputs.package_version }}"
-        jq '.version = ${{ inputs.package_version }}' package.json > tmpfile && mv tmpfile package.json
+        echo "Changing package.json 'version' field to ${{ inputs.rn_version }}"
+        jq '.version = ${{ inputs.rn_version }}' package.json > tmpfile && mv tmpfile package.json
         git config user.email "damian.mussi@embrace.io"
         git config user.name "Mussi Damian"
-        git add ./package.json
-        git commit -m "bump rn version to ${{ inputs.package_version }}"
+        git add package.json
+        git commit -m "bump rn version to ${{ inputs.rn_version }}"
         git push origin main
         
     - name: Build your package (if necessary)
