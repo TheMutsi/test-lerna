@@ -26,7 +26,7 @@ jobs:
 
     - name: Publish to NPM
       run: |
-        echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
+        echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
         yarn publish --access public  # Cambia 'public' a 'restricted' si tu paquete es privado
 
     - name: Clean up .npmrc file
