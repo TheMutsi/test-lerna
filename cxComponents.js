@@ -18,3 +18,10 @@ ComponentStrategy.productFitHelp = function productFitHelp() {
   var escapedTitle = title.replace(/'/g, "\\'").replace(/"/g, '\\"');
   return '<button class="component-button" data-component="productFitHelp" onclick="if(window.ChatWidget && window.ChatWidget.sendMessageThroughButton) { window.ChatWidget.sendMessageThroughButton(\'' + escapedMessage + '\', \'' + escapedTitle + '\'); }" style="background-color: #F7A08B; color: #292929; border: 1px solid #e5e7eb; padding: 12px 16px; cursor: pointer; border-radius: 20px; font-size: 14px; font-weight: 400; transition: all 200ms ease; text-align: left; width: 100%; max-width: 280px; box-sizing: border-box; font-family: inherit; white-space: normal; word-wrap: break-word; overflow-wrap: break-word;">' + ComponentStrategy.escapeHtml(title) + '</button>';
 };
+ComponentStrategy.manageOrder = function manageOrder() {
+  var message = 'Manage Order';
+  var title = 'Manage Order';
+  var escapedMessage = message.replace(/'/g, "\\'").replace(/"/g, '\\"');
+  var escapedTitle = title.replace(/'/g, "\\'").replace(/"/g, '\\"');
+  return '<button class="component-button" data-component="manageOrder" onclick="if(window.ChatWidget && window.ChatWidget.sendMessageThroughButton) { window.ChatWidget.sendMessageThroughButton(\'' + escapedMessage + '\', \'' + escapedTitle + '\'); }" style="background-color: #F7A08B; color: #292929; border: 1px solid #e5e7eb; padding: 12px 16px; cursor: pointer; border-radius: 20px; font-size: 14px; font-weight: 400; transition: all 200ms ease; text-align: left; width: 100%; max-width: 280px; box-sizing: border-box; font-family: inherit; white-space: normal; word-wrap: break-word; overflow-wrap: break-word;">' + ComponentStrategy.escapeHtml(title) + '</button>';
+};
