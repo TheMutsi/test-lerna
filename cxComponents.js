@@ -46,3 +46,11 @@ ComponentStrategy.exclusiveOffers = function exclusiveOffers() {
   var escapedTitle = title.replace(/'/g, "\\'").replace(/"/g, '\\"');
   return '<button class="component-button" data-component="exclusiveOffers" onclick="if(window.ChatWidget && window.ChatWidget.sendMessageThroughButton) { window.ChatWidget.sendMessageThroughButton(\'' + escapedMessage + '\', \'' + escapedTitle + '\'); }" style="background-color: #F7A08B; color: #292929; border: 1px solid #e5e7eb; padding: 12px 16px; cursor: pointer; border-radius: 20px; font-size: 14px; font-weight: 400; transition: all 200ms ease; text-align: left; width: 100%; max-width: 280px; box-sizing: border-box; font-family: inherit; white-space: normal; word-wrap: break-word; overflow-wrap: break-word;">' + ComponentStrategy.escapeHtml(title) + '</button>';
 };
+ComponentStrategy.productFitHelp = function productFitHelp() {
+  var message = 'Me das el link a Product y Fit para solicitar ayuda';
+  var title = 'Product & Fit Help';
+  var subtitle = 'Me das el link a Product y Fit para solicitar ayuda';
+  var escapedMessage = message.replace(/'/g, "\\'").replace(/"/g, '\\"');
+  var escapedTitle = title.replace(/'/g, "\\'").replace(/"/g, '\\"');
+  return '<button class="component-button" data-component="productFitHelp" onclick="if(window.ChatWidget && window.ChatWidget.sendMessageThroughButton) { window.ChatWidget.sendMessageThroughButton(\'' + escapedMessage + '\', \'' + escapedTitle + '\'); }" style="background-color: #F7A08B; color: #292929; border: 1px solid #e5e7eb; padding: 12px 16px; cursor: pointer; border-radius: 20px; font-size: 14px; font-weight: 400; transition: all 200ms ease; text-align: left; width: 100%; max-width: 280px; box-sizing: border-box; font-family: inherit; white-space: normal; word-wrap: break-word; overflow-wrap: break-word; display: flex; flex-direction: column; align-items: flex-start;"><span style="font-weight: 500; font-size: 14px; line-height: 1.4; color: #292929; margin-bottom: 2px;">' + ComponentStrategy.escapeHtml(title) + '</span><span style="font-weight: 400; font-size: 12px; line-height: 1.4; color: #6b7280;">' + ComponentStrategy.escapeHtml(subtitle) + '</span></button>';
+};
